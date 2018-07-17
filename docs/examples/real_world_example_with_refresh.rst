@@ -58,8 +58,9 @@ trivial to transfer to any other web framework and provider.
         authorization_url, state = google.authorization_url(authorization_base_url,
             # offline for refresh token
             # force to always make user click authorize
-            access_type="offline", prompt="select_account")
-
+            access_type="offline", prompt="select_account",access_type="offline", approval_prompt="force")
+            # If you want to refresh token google function need refresh_token parameter as values to this function
+            
         # State is used to prevent CSRF, keep this for later.
         session['oauth_state'] = state
         return redirect(authorization_url)
